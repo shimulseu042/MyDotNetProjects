@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -University Course and Result Management System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    
+    <style type="text/css">
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px 6px 6px 6px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            margin: 2px 0 0;
+            min-width: 100px;
+            top: 100%;
+            z-index: 1000;
+        }
+
+            ul li {
+                display: block;
+                position: relative;
+                float: left;
+                border: 1px solid white;
+            }
+
+        li ul {
+            display: none;
+        }
+
+        ul li a {
+            display: block;
+            background: #000;
+            padding: 5.5px 12px 5.5px 12px;
+            text-decoration: navy;
+            white-space: nowrap;
+            color: #fff;
+        }
+
+            ul li a:hover {
+                background: yellow;
+            }
+
+        li:hover ul {
+            display: block;
+            position: absolute;
+        }
+
+        li:hover li {
+            float: none;
+        }
+
+        li:hover a {
+            background: seagreen;
+        }
+
+        li:hover li a:hover {
+            background: whitesmoke;
+        }
+
+        .navbar .brand {
+            display: block;
+            float: left;
+            padding: 5px 10px 5px;
+            margin-left: -40px;
+            font-size: 7px;
+            font-weight: 100;
+            color: white;
+            text-shadow: 0 0px 0 #ffffff;
+        }
+
+
+
+        .navbar-text {
+            margin-bottom: 0;
+            line-height: 18px;
+            color: white;
+        }
+
+        #drop-nav li ul li {
+            border-top: 0px;
+        }
+    </style>
+
+
+    
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("University Management System", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+               
+                 <ul id="drop-nav" class="nav navbar-nav">
+                    <li>
+                        <a href="#">Department Module</a>
+                        <ul>
+                            <li>@Html.ActionLink("Save Department", "Save", "Department")</li>
+                            <li>@Html.ActionLink("View Department", "ViewAllDepartment", "Department")</li>
+                        </ul>
+                    </li>
+
+
+
+                    <li>
+                        <a href="#">Course Module</a>
+                        <ul>
+                            <li>@Html.ActionLink("Save Course", "Save", "Course")</li>
+                            <li>@Html.ActionLink("View Course Statics", "ViewCourseStatics", "Course")</li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li>
+                        <a href="#">Teacher Module</a>
+                        <ul>
+                            <li>@Html.ActionLink("Save Teacher", "Save", "Teacher")</li>
+                            <li>@Html.ActionLink("Course Assign To Teacher", "CourseAssignToTeacher", "CourseAssign")</li>
+                        </ul>
+                    </li>
+
+                  
+
+
+                    <li>
+                        <a href="#">Student Module</a>
+                        <ul>
+                            <li>@Html.ActionLink("Register Student", "Register", "Student")</li>
+                            
+                        </ul>
+                    </li>
+
+                </ul>
+
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - University Management System By Incredible Wizard</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
